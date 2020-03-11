@@ -26,7 +26,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 
 " Appearance and Themes
-Plug 'sainnhe/gruvbox-material'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 
 " https://github.com/vim-airline/vim-airline
@@ -218,13 +218,9 @@ nnoremap n nzz
 nnoremap N Nzz
 " ------------------------------------------- Plugin Config ---------------------------------------------
 
-" #GRUVBOX Material {{{
 set termguicolors
 set background=dark
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_enable_bold = 1
-colorscheme gruvbox-material
-" }}}
+colorscheme dracula
 
 " #SUPERTAB {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -299,7 +295,7 @@ let g:netrw_altv = 1
 let g:netrw_liststyle=3
 
 " airline
-let g:airline_theme = 'dracula'
+let g:airline_theme = 'simple'
 let g:airline#extensions#tabline#enabled = 0 
 let g:airline#extensions#branch#enabled = 1 
 let g:airline_left_sep = ' ❤  '
