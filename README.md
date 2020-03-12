@@ -81,4 +81,14 @@ files
 ,gt               fzfRg
 
 F5                you can use it to go to definition
+F3                maximize and restore current window
+
+gcc               comment out a line
+gc                comment out the target of a motion
+gcap              comment out a paragraph
+
+(check the help of unimpaired plugin if you want very useful navigation mappings)
+
+
+
 ```

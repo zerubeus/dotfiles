@@ -11,6 +11,8 @@ Plug 'nelstrom/vim-markdown-folding'
 " Cool git util
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+
+" git messenger have some functionalities of git lense in VSCode
 Plug 'rhysd/git-messenger.vim'
 
 " Fuzzy seach for files and stuff
@@ -36,21 +38,49 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mattn/emmet-vim'
+
+" Highlights the line of the cursor only in the current window.
 Plug 'miyakogi/conoline.vim'
+
+" Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
+
+" maximize and restore current window
 Plug 'szw/vim-maximizer'
+
+" quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
+
+" comment code and text (see github for keys)
 Plug 'tpope/vim-commentary'
+
+" Insert or delete brackets, parens, quotes in pair.
 Plug 'jiangmiao/auto-pairs'
+
+" text filtering and alignment
 Plug 'godlygeek/tabular'
+
+" pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
+
+" enhance netrw with some useful keys see readme
 Plug 'tpope/vim-vinegar'
+
+" save the current state of vim, window position, open folds, see github
 Plug 'tpope/vim-obsession'
+
+" few utilities for pretty tabs see github for doc
 Plug 'gcmt/taboo.vim'
+
+" parentheses improved
 Plug 'luochen1990/rainbow'
+
+" manage tag files auto
 Plug 'ludovicchabant/vim-gutentags'
+
 " fading effect for focused tab
 Plug 'TaDaa/vimade'
+
 " display css colors
 Plug 'ap/vim-css-color'
 Plug 'editorconfig/editorconfig-vim'
@@ -381,6 +411,15 @@ nmap <leader>gk <plug>(signify-prev-hunk)
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gs :Gstatus<CR>
+" }}}
+
+" #unimpaired {{{
+nmap < [
+nmap > ]
+omap < [
+omap > ]
+xmap < [
+xmap > ]
 " }}}
 
 " #EDITORCONFIG {{{
