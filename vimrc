@@ -10,6 +10,8 @@ Plug 'nelstrom/vim-markdown-folding'
 
 " Cool git util
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'rhysd/git-messenger.vim'
 
 " Fuzzy seach for files and stuff
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -47,7 +49,9 @@ Plug 'tpope/vim-obsession'
 Plug 'gcmt/taboo.vim'
 Plug 'luochen1990/rainbow'
 Plug 'ludovicchabant/vim-gutentags'
+" fading effect for focused tab
 Plug 'TaDaa/vimade'
+" display css colors
 Plug 'ap/vim-css-color'
 Plug 'editorconfig/editorconfig-vim'
 
@@ -68,7 +72,7 @@ let g:jsx_ext_required = 0
 " More natural split opening.
 set splitbelow
 set splitright
-  
+
 " Show leader key
 set showcmd
 
@@ -88,6 +92,16 @@ set textwidth=80
 set formatoptions+=t
 set colorcolumn=+1
 set showmatch
+
+" If on, Vim will wrap long lines at a character in 'breakat' rather
+" than at the last character that fits on the screen.  Unlike
+" 'wrapmargin' and 'textwidth', this does not insert <EOL>s in the file,
+" it only affects the way the file is displayed, not its contents.
+" If 'breakindent' is set, line is visually indented. Then, the value
+" of 'showbreak' is used to put in front of wrapped lines. This option
+" is not used when the 'wrap' option is off.
+" Note that <Tab> characters after an <EOL> are mostly not displayed
+" with the right amount of white space.
 set lazyredraw
 
 " #FINDING FILES
@@ -159,9 +173,10 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" A saner way to save files.<F2> is easy to press
+" A saner way to save files.<F2> is easy to press (in normal mode)
 nnoremap <F2> :w<CR>
 
+" Remap shift+tab (litral tab character) in insert mode
 inoremap <S-Tab> <C-d>
 
 " MOVING LINES
@@ -296,13 +311,13 @@ let g:netrw_liststyle=3
 
 " airline
 let g:airline_theme = 'simple'
-let g:airline#extensions#tabline#enabled = 0 
-let g:airline#extensions#branch#enabled = 1 
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#enabled = 1
 let g:airline_left_sep = ' ❤  '
 let g:airline_right_sep = ' 🟆  '
-let g:airline_section_warning = '' 
-let g:airline_section_y = '' 
-let g:airline_section_x = '' 
+let g:airline_section_warning = ''
+let g:airline_section_y = ''
+let g:airline_section_x = ''
 set laststatus=2 " for airline
 
 " #FZF {{{
