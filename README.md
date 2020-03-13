@@ -96,4 +96,18 @@ well
 CTRL+k,CTRL+j      can be used to moving between errors as well
 
 :$                 move cursor to the end of file
+:ALEFix            fix file on demand
+F6                 fix file
+CTRL+X             use this in fzf result to open the file in a new H split
+CTRL+V             use this in fzf result to open the file in a new V split
+:BtTags            search for tags in the current buffer (good for finding
+methods quickly)
+:Tags              project wide search for tags
+:Rg                you can use this to search for words the actual working dir
+in the same context you can use Tab to select each file from the search result
+or Alt-A to select all, this will populate the quickfix list that you can
+navigate wil :cnext :cprev
+
+:h fzz-vim-commands find out all fzf options available
+
 ```

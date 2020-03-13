@@ -435,4 +435,11 @@ let g:ale_fixers = ['prettier', 'eslint']
 " fix files when save
 let g:ale_fix_on_save = 1
 
+" map fixing a file ti f6
+nmap <F6> <Plug>(ale_fix)
 
+" search for tags in the current buffer
+nnoremap <Leader>t :BTags<CR>
+
+" project wide search for tags
+nnoremap <Leader>T :Tags<CR>
