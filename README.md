@@ -89,6 +89,11 @@ gcap              comment out a paragraph
 
 (check the help of unimpaired plugin if you want very useful navigation mappings)
 
+:lopen             open the location list to see all errors in a file
+:lnex              to navigate to the next item in lopen you can use :lne as
+well
+:lprevious,:lpr    to navigate to the previous item
+CTRL+k,CTRL+j      can be used to moving between errors as well
 
-
+:$                 move cursor to the end of file
 ```
