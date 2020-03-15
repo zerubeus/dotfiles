@@ -206,7 +206,7 @@ vnoremap <F1> <ESC>
 " A saner way to save files.<F2> is easy to press (in normal mode)
 nnoremap <F2> :w<CR>
 
-" Remap shift+tab (litral tab character) in insert mode
+" Remap shift+tab in insert mode
 inoremap <S-Tab> <C-d>
 
 " MOVING LINES
@@ -221,7 +221,9 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " QuickFix List
 nnoremap <leader>co :cw<CR>
 nnoremap <leader>cc :ccl<CR>
+" cool but use cocnext instead
 nnoremap <silent> <leader>cn :cnext<CR>
+" yes but favor cocprev
 nnoremap <silent> <leader>cp :cprev<CR>
 
 " Shortcut to open vimrc
@@ -276,8 +278,53 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<C-x><C-o>"
 " #COC {{{
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+command! -nargs=0 Prettier :CocCommand prettier.formatFilea
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Use <TAB> for selections ranges.
+" NOTE: Requires 'textDocument/selectionRange' support from the language server.
+" coc-tsserver, coc-python are the examples of servers that support it.
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
 
 nnoremap <silent> <Leader>k :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -289,14 +336,8 @@ function! s:show_documentation()
 endfunction
 "}}}
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-
 " #EMMET {{{
+" change the default emmet leader key
 let g:user_emmet_expandabbr_key='<C-@>'
 imap <expr> <C-Space> emmet#expandAbbrIntelligent("\<tab>")
 let g:user_emmet_settings = {
@@ -349,10 +390,16 @@ let g:airline_section_x = ''
 set laststatus=2 " for airline
 
 " #FZF {{{
+" setting Fzf as a prefix to all default fzf commands
 let g:fzf_command_prefix = 'Fzf'
+
+" search in list of opened buffers
 nnoremap <Leader>b :FzfBuffers<CR>
+" search in history
 nnoremap <Leader>h :FzfHistory<CR>
+" search for tabs in current buffer
 nnoremap <Leader>t :FzfBTags<CR>
+" search in current project gutentag will figure out the project root
 nnoremap <Leader>T :FzfTags<CR>
 nnoremap <C-p> :FzfFiles<CR>
 " Have FZF list all tracked files plus untracked files minus your ignored files
@@ -360,6 +407,7 @@ nnoremap <Leader>p :FzfGitFiles --exclude-standard --others --cached<CR>
 nnoremap <Leader>gt :FzfRg<CR>
 " }}}
 
+" a replacement of find used by fzf
 " #RIPGREP {{{
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
@@ -373,26 +421,7 @@ let g:conoline_auto_enable = 1
 let g:conoline_use_colorscheme_default_insert=1
 " }}}
 
-" Prevent errors from opening the location list
-let g:go_fmt_fail_silently = 1
-
-" Open local documentation
-let g:go_doc_url = 'http://localhost:6060'
-
-" Search and easily navigate between the function and type definitions within
-" the package
-au FileType go nmap <leader>d :GoDeclsDir<cr
-
-" Use snakecase for JSON tags
-let g:go_addtags_transform = "snakecase"
-
-" Go to definition
-au FileType go nmap <F5> <Plug>(go-def)
-
-" Prevent prefilling new files
-let g:go_template_autocreate = 0
-" }}}
-
+" file list using the rg instead of find
 " #GUTENTAGS {{{
 let g:gutentags_file_list_command = "rg --files --follow --ignore-file '/home/ayo/.vimignore'"
 " }}}
@@ -402,6 +431,8 @@ let g:gutentags_file_list_command = "rg --files --follow --ignore-file '/home/ay
 let g:signify_vcs_list = [ 'git' ]
 
 " Jump to next and previous hunks
+" hunks are markers in current buffer indicating
+" the status of the git diff
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 
@@ -428,6 +459,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
+" ale will use prettier and eslint project config to lint buffers
 let g:ale_fixers = ['prettier', 'eslint']
 
 " fix files when save
@@ -436,5 +468,6 @@ let g:ale_fix_on_save = 1
 " map fixing a file ti f6
 nmap <F6> <Plug>(ale_fix)
 
+" allow using mouse selection automatic switch to visual mode
+" this will also allow mouse scrolling, change cursor position
 set mouse=a
-
