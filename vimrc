@@ -39,6 +39,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mattn/emmet-vim'
 
+" Beeter way to close buffers
+Plug 'moll/vim-bbye'
+
 " Highlights the line of the cursor only in the current window.
 Plug 'miyakogi/conoline.vim'
 
@@ -148,13 +151,10 @@ set wildmenu
 set wildignore+=**/node_modules/**,**/dist/**,**_site/**,*.swp,*.png,*.jpg,*.gif,*.webp,*.jpeg,*.map
 
 " Use the system register for all cut yank and paste operations
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 " Toggle Hybrid Numbers in insert and normal mode
 :set number relativenumber
-
-" Show Invisibles
-set list
 set listchars=tab:→→,eol:¬,space:.
 
 " Automatically hide buffer with unsaved changes without showing warning
@@ -333,9 +333,7 @@ map <silent> <C-E> :call ToggleVExplorer()<CR>
 " Hit enter in the file browser to open the selected
 " file with :vsplit to the right of the browser.
 let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-
+let g:netrw_fastbrowse = 0
 " Default to tree mode
 let g:netrw_liststyle=3
 
@@ -438,8 +436,5 @@ let g:ale_fix_on_save = 1
 " map fixing a file ti f6
 nmap <F6> <Plug>(ale_fix)
 
-" search for tags in the current buffer
-nnoremap <Leader>t :BTags<CR>
+set mouse=a
 
-" project wide search for tags
-nnoremap <Leader>T :Tags<CR>
