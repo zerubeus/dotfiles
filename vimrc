@@ -463,7 +463,7 @@ let g:ale_sign_warning = '⚠️'
 let g:ale_fixers = ['prettier', 'eslint']
 
 " fix files when save
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 0
 
 " map fixing a file ti f6
 nmap <F6> <Plug>(ale_fix)
@@ -471,3 +471,6 @@ nmap <F6> <Plug>(ale_fix)
 " allow using mouse selection automatic switch to visual mode
 " this will also allow mouse scrolling, change cursor position
 set mouse=a
+
+" set backspace to work like any other editor
+set backspace=indent,eol,start
