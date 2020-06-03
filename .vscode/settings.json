@@ -57,20 +57,41 @@
   "editor.renderLineHighlight": "line",
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#44475a",
-    "activityBar.background": "#ef7853",
-    "activityBar.activeBackground": "#ef7853",
-    "activityBar.activeBorder": "#8af4a3",
+    "activityBar.background": "#1accff",
+    "activityBar.activeBackground": "#1accff",
+    "activityBar.activeBorder": "#df00ad",
     "activityBar.foreground": "#15202b",
     "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#8af4a3",
-    "activityBarBadge.foreground": "#15202b",
-    "titleBar.activeBackground": "#eb5424",
-    "titleBar.inactiveBackground": "#eb542499",
-    "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveForeground": "#e7e7e799",
-    "statusBar.background": "#eb5424",
-    "statusBarItem.hoverBackground": "#ef7853",
-    "statusBar.foreground": "#e7e7e7"
+    "activityBarBadge.background": "#df00ad",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "titleBar.activeBackground": "#00b3e6",
+    "titleBar.inactiveBackground": "#00b3e699",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveForeground": "#15202b99",
+    "statusBar.background": "#00b3e6",
+    "statusBarItem.hoverBackground": "#008bb3",
+    "statusBar.foreground": "#15202b",
+    "statusBar.border": "#00b3e6",
+    "titleBar.border": "#00b3e6",
+    "list.activeSelectionForeground": "#7CB342",
+    "list.inactiveSelectionForeground": "#7CB342",
+    "list.highlightForeground": "#7CB342",
+    "scrollbarSlider.activeBackground": "#7CB34250",
+    "editorSuggestWidget.highlightForeground": "#7CB342",
+    "textLink.foreground": "#7CB342",
+    "progressBar.background": "#7CB342",
+    "pickerGroup.foreground": "#7CB342",
+    "notificationLink.foreground": "#7CB342",
+    "editorWidget.resizeBorder": "#7CB342",
+    "editorWidget.border": "#7CB342",
+    "settings.modifiedItemIndicator": "#7CB342",
+    "settings.headerForeground": "#7CB342",
+    "panelTitle.activeBorder": "#7CB342",
+    "breadcrumb.activeSelectionForeground": "#7CB342",
+    "menu.selectionForeground": "#7CB342",
+    "menubar.selectionForeground": "#7CB342",
+    "editor.findMatchBorder": "#7CB342",
+    "selection.background": "#7CB34240"
   },
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.tabSize": 2,
@@ -83,7 +104,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -93,6 +114,18 @@
     {
       "before": ["j", "j"],
       "after": ["<Esc>"]
+    },
+    {
+      "before": [",", "e", "e"],
+      "after": ["{"]
+    },
+    {
+      "before": [",", "z", "z"],
+      "after": ["["]
+    },
+    {
+      "before": [",", "r", "r"],
+      "after": ["=", ">"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -147,16 +180,30 @@
     {
       "before": ["<leader>", "c"],
       "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<c-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["<leader>", "'"],
+      "commands": ["workbench.action.toggleEditorWidths"]
     }
   ],
   "vim.leader": ",",
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": false
+    "<C-f>": false,
+    "<C-k>": false
   },
   "prettier.singleQuote": true,
   "bookmarks.navigateThroughAllFiles": true,
   "editor.minimap.enabled": false,
-  "peacock.color": "#eb5424"
+  "peacock.color": "#00b3e6",
+  "editor.lineNumbers": "relative",
+  "editor.parameterHints": false,
+  "explorer.confirmDelete": false,
+  "workbench.colorTheme": "Material Theme",
+  "materialTheme.accent": "Lime",
+  "workbench.editor.enablePreview": false
 }
-

@@ -203,6 +203,13 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" mapp escape to jj in insert mode
+inoremap jj <ESC>
+
+" remap brackt in insert mode
+inoremap <leader>zz [
+inoremap <leader>ee {
+
 " A saner way to save files.<F2> is easy to press (in normal mode)
 nnoremap <F2> :w<CR>
 
@@ -321,7 +328,8 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+" this map conflict with the native gi of vim which is verry important
+" nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
